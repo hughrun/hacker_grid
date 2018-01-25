@@ -1,0 +1,25 @@
+{
+  "name": "hacker-grid",
+  "version": "1.0.5",
+  "engines": {
+  	"ghost": "^1.20.3"
+  },
+  "license": "MIT",
+  "config": {
+  	"posts_per_page": 20
+  },
+  "description": "A minimal, text-driven theme exclusively for Ghost. Based on hacker_chic but now uses css grid.",
+  "author": {
+  		"name": "Hugh Rundle",
+  	  "email": "hugh@hughrundle.net",
+  	  "url": "https://www.hughrundle.net"
+  },
+  "gpm": {
+    "type": "theme",
+    "categories": [
+        "Minimal",
+        "Personal Blogs"
+    ]
+	},
+	"homepage": "https://github.com/hughrun/hacker_grid"
+}

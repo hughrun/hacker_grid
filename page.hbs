@@ -1,0 +1,17 @@
+{{!< default}}
+
+{{#post}}
+	<article class="{{post_class}}">
+	
+	<header class="post-header" {{#if feature_image}} style="background-image: url({{img_url feature_image}});" {{else}} style="background-image: url({{@blog.cover_image}});" {{/if}}>
+		<div class="post-title">
+			<h1>{{title}}</h1>
+		</div>
+	</header>
+	
+	<main class="{{post_class}}">
+		{{content}}
+	</main>
+	
+	</article>
+{{/post}}

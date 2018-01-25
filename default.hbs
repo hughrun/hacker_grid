@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+	<head>
+    {{!-- Document Settings --}}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{!-- Page Meta --}}
+    <title>{{meta_title}}</title>
+
+    {{!-- Mobile Meta --}}
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {{!-- Load custom favicon --}}
+    <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
+
+    {{!-- Styles --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/prism.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/bigfoot.css"}}" />
+
+    {{!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Code+Pro" rel="stylesheet"> --}}
+
+    {{!-- ghost header stuff --}}
+		{{ghost_head}}
+	</head>
+
+	<body class="{{body_class}}">
+
+		{{{body}}}
+
+		{{>footer}}
+
+		{{!-- scripts --}}
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<script type="text/javascript"  src="{{asset "js/prism.js"}}"></script>
+		<script type="text/javascript"  src="{{asset "js/bigfoot.min.js"}}"></script>
+		<script type="text/javascript">$.bigfoot();</script>
+		{{!-- jQuery needs to come before `{{ghost_foot}}` so that jQuery can be used in code injection --}}
+		{{ghost_foot}}
+	</body>
+</html>

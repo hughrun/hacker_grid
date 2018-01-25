@@ -1,0 +1,16 @@
+{{!< default}}
+
+{{>header}}
+
+{{#post}}
+		<main class="{{post_class}}">
+			{{content}}
+			<section class="tags-list">
+			{{#get "tags" limit="all" include="count.posts" order="name asc"}}
+				{{#foreach tags}}
+					<div class="topic" style="background-image: url({{img_url feature_image}}) "><a style="font-size: calc(1em + (0.1 * {{count.posts}}em)" href="/tag/{{slug}}">{{name}}</a></div>
+				{{/foreach}}
+			{{/get}}
+		</section>
+		</main>
+{{/post}}

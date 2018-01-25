@@ -1,0 +1,21 @@
+<footer>
+{{#get "users" id="1" as |owner|}}
+	{{#owner}}
+	<nav>
+		{{navigation}}
+	</nav>
+	<nav>
+		<ul>
+		<li><svg class="icon"><use xlink:href="{{asset "svg/hc-icons.svg"}}#twitter-black-shape"></use></svg><a class="icon-link" href="{{twitter_url}}">{{@blog.twitter}}</a></li>
+		<li><svg class="icon"><use xlink:href="{{asset "svg/hc-icons.svg"}}#github-logo" /></svg><a class="icon-link" href="https://github.com/hughrun">hughrun</a></li>
+		<li><svg class="icon"><use xlink:href="{{asset "svg/hc-icons.svg"}}#note" /></svg><a class="icon-link" href="mailto:hugh@hughrundle.net.DO.NOT.SPAM.ME">email</a></li>
+		</ul>
+	</nav>
+	<section>
+		<p>All content &#xA9 {{name}} except as noted in <i>Acknowledgements</i>. Text licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>.</p>
+		<p>Please ensure any redistribution adheres to the <a href="https://wiki.creativecommons.org/wiki/Best_practices_for_attribution">Creative Commons Best Practices for Attribution</a>.</p>
+		<p>Made with <a href="https://ghost.org"><svg class="icon ghost-icon"><use xlink:href="{{asset "svg/hc-icons.svg"}}#ghost-logo" /></svg></a> using <a href="https://github.com/hughrun/hacker_grid">hacker-grid</a> theme.</p>
+	</section>
+		{{/owner}}
+{{/get}}
+</footer>

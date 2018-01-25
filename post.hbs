@@ -1,0 +1,78 @@
+{{!< default}}
+
+{{#post}}
+	<article class="{{post_class}}">
+		<header class="post-header" {{#if feature_image}} style="background-image: url({{img_url feature_image}});" {{else}} style="background-image: url({{@blog.cover_image}});" {{/if}}>
+			<div class="post-title">
+				<h1>{{title}}</h1>
+				<p class="post-meta">{{date published_at timeago="true"}}</p>
+			</div>
+		</header>
+		<main class="{{post_class}}">
+			{{content}}
+		</main>
+	</article>
+	{{!-- Read more sections under post --}}
+	<section class="primary-tag">
+	{{!-- first section	 --}}
+		<div class="tag-more">
+			{{#if primary_tag}}
+				{{#next_post in="primary_tag"}}
+					<div class="post-meta">More on {{primary_tag.name}} from {{date published_at timeago="true"}}</div>
+					<a href="{{url}}"><h3>{{title}}</h3></a>
+				{{!-- this 'else' belongs to #next_post, not #if --}}
+				{{else}}
+				{{!-- if no next post for the tag, try just the previous post --}}
+				 {{#next_post}}
+					<div class="post-meta">More from {{date published_at timeago="true"}}</div>
+					<a href="{{url}}"><h3>{{title}}</h3></a>
+				 {{else}}
+				 {{!-- if this is the latest post, link to the topics page --}}
+					<div class="post-meta">Browse more topics on {{@blog.title}}</div>
+					<a href="{{@blog.url}}/topics"><h3>Topics</h3></a>
+				 {{/next_post}}
+				{{/next_post}}
+			{{else}}
+			{{!-- if there are no tags on the post at all, show the next post --}}
+			 {{#next_post}}
+					<div class="post-meta">More from {{date published_at timeago="true"}}</div>
+				 <a href="{{url}}"><h3>{{title}}</h3></a>
+			 {{else}}
+			 {{!-- if no next post and no tags, link to the topics page --}}
+					<div class="post-meta">Browse more topics on {{@blog.title}}</div>
+					<a href="{{@blog.url}}/topics"><h3>Topics</h3></a>
+			 {{/next_post}}
+			{{/if}}
+		</div>
+	{{!-- second section --}}
+		<div class="tag-more">
+			{{#if primary_tag}}
+			  {{#prev_post in="primary_tag"}}
+			  	 <div class="post-meta">More on {{primary_tag.name}} from {{date published_at timeago="true"}}</div>
+				  <a href="{{url}}"><h3>{{title}}</h3></a>
+				{{!-- this 'else' belongs to #prev_post, not #if --}}
+			  {{else}}
+				{{!-- if no previous post for the tag, try just the previous post --}}
+				 {{#prev_post}}
+	 				<div class="post-meta">More from {{date published_at timeago="true"}}</div>
+	 			  <a href="{{url}}"><h3>{{title}}</h3></a>
+	 		 	 {{else}}
+				 {{!-- if this is the oldest post, link to the topics page --}}
+	 			  <div class="post-meta">Browse more topics on {{@blog.title}}</div>
+	 			  <a href="{{@blog.url}}/topics"><h3>Topics</h3></a>
+	 		 	 {{/prev_post}}
+			  {{/prev_post}}
+			{{else}}
+			{{!-- if there are no tags on the post at all, show the previous post --}}
+			 {{#prev_post}}
+					<div class="post-meta">More from {{date published_at timeago="true"}}</div>
+				 <a href="{{url}}"><h3>{{title}}</h3></a>
+			 {{else}}
+			 {{!-- if no previous post and no tags, link to the topics page --}}
+				  <div class="post-meta">Browse more topics on {{@blog.title}}</div>
+				  <a href="{{@blog.url}}/topics"><h3>Topics</h3></a>
+			 {{/prev_post}}
+			{{/if}}
+		</div>
+	</section>
+{{/post}}
